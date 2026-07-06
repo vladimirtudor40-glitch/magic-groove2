@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magic Groove 2 — Pensiune în Șimon, Bran · Ritmul lent al muntelui</title>
+<meta name="description" content="Magic Groove 2 — bed & breakfast în Șimon, la câțiva pași de Castelul Bran. Camere curate, pârâu în spatele casei, gazdă primitoare. 4,4★ din 65 de recenzii Google. Rezervări: 0740 244 524.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSJlfcNsFipU3v6Aen_27wSH183jMOeYwpzRjyERU5RfKJVNnHZChQtt826cOxLMFxGuDmmAvl8g_UrVbzt7DdFkeNgbt_G1VcxGCIt4fJg7ZX2z35xPh9dVIV5lDfw0ozC-MuUg=w1920-h1280-k-no">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BedAndBreakfast",
+  "name": "Magic Groove 2",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Strada Iancu Gonțea",
+    "addressLocality": "Șimon, Bran",
+    "postalCode": "507028",
+    "addressRegion": "Brașov",
+    "addressCountry": "RO"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.4662502, "longitude": 25.3536317 },
+  "telephone": "+40740244524",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.4", "reviewCount": "65" }
+}
+</script>
+<style>
+/* ============================================================
+   MAGIC GROOVE 2 · „Ritmul lent al muntelui"
+   Concept: șederea ca un disc de vinil — Fața A (casa),
+   Fața B (valea). Caneluri = curbe de nivel ale muntelui.
+   ============================================================ */
+:root{
+  --ink:#17131F;          /* lac de vinil — aproape negru, cald */
+  --ink-soft:#241E30;
+  --ink-line:#37304a;
+  --cream:#F5EEDF;        /* hârtie de copertă */
+  --cream-dim:#EDE3CE;
+  --amber:#E0763A;        /* chihlimbar ars — CTA */
+  --amber-deep:#C05F27;
+  --lilac:#A695C9;        /* amurg peste Bucegi */
+  --lilac-dim:#7C6C9E;
+  --text-on-ink:#EFE7D6;
+  --muted-on-ink:#B3A8C4;
+  --muted-on-cream:#5C5170;
+  --radius:18px;
+  --font-d:'Fraunces',serif;
+  --font-b:'Karla',sans-serif;
+  --z-nav:50; --z-arm:40; --z-skip:60;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-b);
+  background:var(--ink);
+  color:var(--text-on-ink);
+  font-size:17px;line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:var(--ink)}
+
+/* --- grain overlay (foarte subtil, ca zgomotul unui LP) --- */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+  opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a{color:inherit}
+img{max-width:100%;display:block}
+.skip-link{position:fixed;top:-60px;left:16px;z-index:var(--z-skip);background:var(--amber);color:var(--ink);padding:10px 18px;border-radius:10px;font-weight:700;transition:top .2s ease-out}
+.skip-link:focus{top:14px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+
+.wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+
+/* ============ NAV — tracklist ============ */
+nav{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);
+  z-index:var(--z-nav);
+  width:min(1120px,calc(100% - 28px));
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:10px 18px;border-radius:999px;
+  background:rgba(23,19,31,.72);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--ink-line);
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-disc{width:38px;height:38px;flex:none}
+.brand-disc svg{width:100%;height:100%;display:block}
+.brand-name{font-family:var(--font-d);font-weight:600;font-size:1.12rem;letter-spacing:.02em}
+.brand-name em{font-style:italic;color:var(--amber)}
+.nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+.nav-links a{
+  text-decoration:none;font-size:.83rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted-on-ink);padding:8px 13px;border-radius:999px;
+  transition:color .2s ease-out,background .2s ease-out;cursor:pointer;
+}
+.nav-links a span{color:var(--amber);font-family:var(--font-d);font-style:italic;margin-right:5px;font-size:.8rem}
+.nav-links a:hover{color:var(--cream);background:rgba(166,149,201,.12)}
+.nav-cta{
+  text-decoration:none;background:var(--amber);color:var(--ink);font-weight:700;font-size:.86rem;
+  padding:10px 20px;border-radius:999px;white-space:nowrap;cursor:pointer;
+  transition:background .2s ease-out;
+}
+.nav-cta:hover{background:var(--cream)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.nav-toggle svg{width:26px;height:26px;stroke:var(--cream)}
+
+/* ============ TONEARM — progres de scroll ============ */
+.tonearm{
+  position:fixed;left:18px;top:50%;transform:translateY(-50%);
+  z-index:var(--z-arm);height:min(46vh,420px);width:14px;
+  display:flex;align-items:stretch;justify-content:center;
+}
+.tonearm .rail{width:2px;background:var(--ink-line);border-radius:2px;position:relative;margin-inline:auto}
+.tonearm .needle{
+  position:absolute;left:50%;top:0;transform:translate(-50%,-50%);
+  width:13px;height:13px;border-radius:50%;
+  background:var(--amber);border:3px solid var(--ink);
+  box-shadow:0 0 0 1.5px var(--amber);
+  transition:top .1s linear;
+}
+.tonearm .lbl{
+  position:absolute;left:22px;top:0;transform:translateY(-50%);
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-on-ink);
+  writing-mode:vertical-rl;white-space:nowrap;
+}
+
+/* ============ HERO ============ */
+header{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+/* poza de fundal — se ia după mouse (parallax) */
+.hero-media{
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+}
+.hero-media > *{
+  position:absolute;inset:-4%;width:108%;height:108%;
+  object-fit:cover;
+  transform:translate3d(var(--px,0px),var(--py,0px),0) scale(1.04);
+  will-change:transform;
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(90deg, rgba(23,19,31,.94) 0%, rgba(23,19,31,.72) 42%, rgba(23,19,31,.34) 75%, rgba(23,19,31,.45) 100%),
+    linear-gradient(180deg, rgba(23,19,31,.55) 0%, transparent 30%, transparent 62%, rgba(23,19,31,.9) 100%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,640px);gap:48px;align-items:center;
+  padding:150px 0 110px;position:relative;z-index:2;
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lilac);font-weight:600;
+}
+.kicker::before{content:"";width:34px;height:1px;background:var(--lilac)}
+h1{
+  font-family:var(--font-d);font-weight:500;font-size:clamp(2.6rem,5.6vw,4.4rem);
+  line-height:1.06;letter-spacing:-.01em;margin:22px 0 20px;color:var(--cream);
+}
+h1 .it{font-style:italic;font-weight:400;color:var(--amber)}
+.hero-sub{max-width:46ch;color:var(--muted-on-ink);font-size:1.06rem}
+.hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;
+  font-weight:700;font-size:.98rem;padding:15px 28px;border-radius:999px;
+  transition:background .2s ease-out,color .2s ease-out,border-color .2s ease-out;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--amber);color:var(--ink)}
+.btn-primary:hover{background:var(--cream)}
+.btn-ghost{border:1.5px solid var(--ink-line);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--lilac);color:var(--lilac)}
+.hero-rating{
+  display:flex;align-items:center;gap:12px;margin-top:36px;
+  color:var(--muted-on-ink);font-size:.92rem;
+}
+.hero-rating .stars{display:flex;gap:2px}
+.hero-rating .stars svg{width:17px;height:17px;fill:var(--amber)}
+.hero-rating strong{color:var(--cream);font-size:1.05rem}
+.hero-rating a{color:var(--muted-on-ink)}
+.hero-rating a:hover{color:var(--lilac)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* creastă la baza hero */
+.hero-ridge{position:absolute;bottom:-2px;left:0;right:0;z-index:1;pointer-events:none}
+.hero-ridge svg{display:block;width:100%;height:110px}
+
+/* ============ marker Fața A / B ============ */
+.side-mark{
+  display:flex;align-items:center;gap:18px;
+  font-family:var(--font-d);font-style:italic;font-size:1.05rem;color:var(--lilac);
+}
+.side-mark::after{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+.side-mark .badge{
+  width:46px;height:46px;border-radius:50%;flex:none;
+  display:grid;place-items:center;
+  border:1.5px solid currentColor;font-weight:600;font-size:1.15rem;font-style:normal;
+}
+
+/* ============ SECȚIUNI ============ */
+section{padding:96px 0;position:relative}
+.sec-head{max-width:640px;margin-bottom:54px}
+h2{
+  font-family:var(--font-d);font-weight:500;font-size:clamp(1.9rem,3.6vw,2.9rem);
+  line-height:1.12;color:var(--cream);margin:18px 0 14px;letter-spacing:-.01em;
+}
+h2 .it{font-style:italic;color:var(--amber)}
+.sec-head p{color:var(--muted-on-ink)}
+.tracknum{font-family:var(--font-d);font-style:italic;color:var(--amber);font-size:1rem}
+
+/* — Fața A: casa — */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feat{
+  background:var(--ink-soft);border:1px solid var(--ink-line);border-radius:var(--radius);
+  padding:30px 26px;position:relative;overflow:hidden;
+  transition:border-color .25s ease-out,transform .25s ease-out;
+}
+.feat:hover{border-color:var(--lilac-dim)}
+.feat .ico{
+  width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(224,118,58,.12);margin-bottom:18px;
+}
+.feat .ico svg{width:23px;height:23px;stroke:var(--amber)}
+.feat h3{font-family:var(--font-d);font-weight:600;font-size:1.22rem;color:var(--cream);margin-bottom:8px}
+.feat p{font-size:.95rem;color:var(--muted-on-ink)}
+.feat .num{
+  position:absolute;top:18px;right:22px;font-family:var(--font-d);font-style:italic;
+  color:var(--ink-line);font-size:1.6rem;transition:color .25s ease-out;
+}
+.feat:hover .num{color:var(--amber)}
+
+/* — recenzia / liner notes (pe crem) — */
+.liner{background:var(--cream);color:var(--ink);border-radius:28px;padding:0;overflow:hidden}
+.liner-inner{display:grid;grid-template-columns:auto 1fr;gap:44px;padding:64px;align-items:center}
+.liner-disc{width:180px;height:180px;flex:none}
+.liner-disc svg{width:100%;height:100%}
+blockquote{
+  font-family:var(--font-d);font-weight:400;font-style:italic;
+  font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.45;color:var(--ink);
+}
+blockquote strong{font-weight:600;color:var(--amber-deep)}
+.liner cite{
+  display:flex;align-items:center;gap:12px;margin-top:22px;font-style:normal;
+  font-size:.92rem;color:var(--muted-on-cream);font-weight:600;
+}
+.liner cite .stars{display:flex;gap:2px}
+.liner cite .stars svg{width:15px;height:15px;fill:var(--amber-deep)}
+.liner-badge{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-on-cream);margin-bottom:14px;display:block}
+
+/* — Fața B: valea — */
+.valley-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:track 3}
+.valley{
+  border-radius:var(--radius);padding:30px 26px;min-height:250px;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:8px;
+  position:relative;overflow:hidden;border:1px solid var(--ink-line);
+  transition:border-color .25s ease-out;
+}
+.valley:hover{border-color:var(--amber)}
+.valley .art{position:absolute;inset:0;z-index:0}
+.valley .art svg{width:100%;height:100%;display:block}
+.valley::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(23,19,31,.88) 82%);z-index:1}
+.valley h3,.valley p,.valley .dist{position:relative;z-index:2}
+.valley h3{font-family:var(--font-d);font-weight:600;font-size:1.3rem;color:var(--cream)}
+.valley p{font-size:.93rem;color:var(--muted-on-ink)}
+.valley .dist{
+  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+  font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:4px;
+}
+.valley .dist svg{width:14px;height:14px;stroke:var(--amber)}
+
+/* — GALERIE: coperți de disc — */
+.sleeves{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sleeve{
+  aspect-ratio:1;border-radius:var(--radius);overflow:hidden;position:relative;
+  background:var(--ink-soft);border:1px solid var(--ink-line);cursor:pointer;
+  transition:transform .3s ease-out,border-color .3s ease-out;
+}
+.sleeve:hover{transform:translateY(-6px);border-color:var(--lilac-dim)}
+.sleeve img{width:100%;height:100%;object-fit:cover}
+.sleeve .ph{position:absolute;inset:0;display:grid;place-items:center}
+.sleeve .ph svg{width:64%;height:64%;opacity:.9}
+.sleeve figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:38px 18px 14px;font-size:.82rem;font-weight:600;letter-spacing:.04em;color:var(--cream);
+  background:linear-gradient(transparent,rgba(23,19,31,.92));
+}
+.sleeves-note{margin-top:18px;font-size:.85rem;color:var(--muted-on-ink);display:flex;gap:9px;align-items:flex-start}
+.sleeves-note svg{width:16px;height:16px;stroke:var(--lilac);flex:none;margin-top:2px}
+.sleeves-note a{color:var(--lilac)}
+
+/* — CONTACT (pe crem) — */
+.contact-card{background:var(--cream);color:var(--ink);border-radius:28px;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.contact-info{padding:64px}
+.contact-info h2{color:var(--ink)}
+.contact-info .tracknum{color:var(--amber-deep)}
+.contact-list{list-style:none;margin-top:34px;display:grid;gap:20px}
+.contact-list li{display:flex;gap:16px;align-items:flex-start}
+.contact-list .cico{
+  width:42px;height:42px;border-radius:11px;flex:none;display:grid;place-items:center;
+  background:rgba(192,95,39,.12);
+}
+.contact-list .cico svg{width:20px;height:20px;stroke:var(--amber-deep)}
+.contact-list strong{display:block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-cream)}
+.contact-list a,.contact-list span{font-size:1.04rem;font-weight:600;color:var(--ink);text-decoration:none}
+.contact-list a:hover{color:var(--amber-deep)}
+.contact-actions{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--amber-deep);color:var(--ink)}
+.btn-outline-dark{border:1.5px solid rgba(23,19,31,.25);color:var(--ink)}
+.btn-outline-dark:hover{border-color:var(--amber-deep);color:var(--amber-deep)}
+.contact-map{position:relative;min-height:380px;background:var(--ink-soft)}
+.contact-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.9)}
+.map-open{
+  position:absolute;right:16px;bottom:16px;z-index:2;
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer;
+  background:var(--ink);color:var(--cream);font-weight:700;font-size:.85rem;
+  padding:11px 18px;border-radius:999px;min-height:44px;
+  transition:background .2s ease-out,color .2s ease-out;
+}
+.map-open:hover{background:var(--amber);color:var(--ink)}
+.map-open svg{width:16px;height:16px;flex:none}
+
+/* ============ FOOTER ============ */
+footer{padding:44px 0 120px;position:relative}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--muted-on-ink);font-size:.88rem}
+.foot-inner .brand-name{font-size:1rem}
+.runout{
+  margin-top:40px;text-align:center;font-family:var(--font-d);font-style:italic;
+  color:var(--ink-line);font-size:.95rem;letter-spacing:.35em;
+}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease-out,transform .7s ease-out}
+.reveal.on{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1240px){.tonearm{display:none}}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;padding-top:130px;gap:26px}
+  .feat-grid,.valley-grid,.sleeves{grid-template-columns:repeat(2,1fr)}
+  .liner-inner{grid-template-columns:1fr;padding:44px;gap:26px}
+  .liner-disc{width:120px;height:120px}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-info{padding:44px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .nav-links{
+    position:absolute;top:calc(100% + 10px);left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:6px;padding:16px;
+    background:rgba(23,19,31,.97);border:1px solid var(--ink-line);border-radius:22px;
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:13px 16px;font-size:.95rem}
+  .nav-toggle{display:block}
+  .nav-cta{display:none}
+  .feat-grid,.valley-grid,.sleeves{grid-template-columns:1fr}
+  section{padding:70px 0}
+}
+/* touch targets */
+.nav-links a,.btn,.nav-cta{min-height:44px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-media > *{transform:none !important}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#casa">Sari la conținut</a>
+
+<!-- ================= SVG defs refolosite ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- discul-semnătură: caneluri = curbe de nivel -->
+    <g id="disc-svg">
+      <circle cx="100" cy="100" r="98" fill="#100D18"/>
+      <g fill="none" stroke="#37304a" stroke-width="1">
+        <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="86"/>
+        <circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="74"/>
+        <circle cx="100" cy="100" r="68"/><circle cx="100" cy="100" r="62"/>
+        <circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="50"/>
+        <circle cx="100" cy="100" r="44"/>
+      </g>
+      <!-- reflex de amurg pe caneluri -->
+      <path d="M100 8a92 92 0 0 1 65 27" fill="none" stroke="#A695C9" stroke-width="2.5" stroke-linecap="round" opacity=".65"/>
+      <path d="M100 20a80 80 0 0 1 56.6 23.4" fill="none" stroke="#A695C9" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+      <path d="M35 165a92 92 0 0 1-27-65" fill="none" stroke="#E0763A" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
+      <!-- eticheta -->
+      <circle cx="100" cy="100" r="36" fill="#E0763A"/>
+      <circle cx="100" cy="100" r="36" fill="none" stroke="#C05F27" stroke-width="1.5"/>
+      <!-- creastă de munte pe etichetă -->
+      <path d="M74 108l12-16 8 10 10-14 12 16 4 4H70z" fill="#17131F"/>
+      <circle cx="100" cy="100" r="3.2" fill="#17131F"/>
+      <text x="100" y="82" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-size="13" fill="#17131F">MG·2</text>
+    </g>
+  </defs>
+</svg>
+
+<!-- ================= NAV ================= -->
+<nav aria-label="Navigație principală">
+  <a class="brand" href="#top" aria-label="Magic Groove 2 — acasă">
+    <span class="brand-disc" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#disc-svg"/></svg></span>
+    <span class="brand-name">Magic <em>Groove</em> 2</span>
+  </a>
+  <button class="nav-toggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="nav-links">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#casa"><span>01</span>Casa</a></li>
+    <li><a href="#impresii"><span>02</span>Impresii</a></li>
+    <li><a href="#valea"><span>03</span>Valea</a></li>
+    <li><a href="#galerie"><span>04</span>Galerie</a></li>
+    <li><a href="#contact"><span>05</span>Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:+40740244524">0740 244 524</a>
+</nav>
+
+<!-- ================= TONEARM (progres) ================= -->
+<div class="tonearm" aria-hidden="true">
+  <div class="rail"><div class="needle" id="needle"></div></div>
+  <span class="lbl">acum se redă · șederea ta</span>
+</div>
+
+<!-- ================= HERO ================= -->
+<header id="top">
+  <div class="hero-media" id="hero-media" aria-hidden="true">
+    <!-- înlocuit automat cu fotografia reală când HERO_PHOTO e setat -->
+    <svg id="hero-fallback" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#241E30"/><stop offset=".55" stop-color="#3a3052"/><stop offset="1" stop-color="#59446b"/>
+        </linearGradient>
+        <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#E0763A"/><stop offset="1" stop-color="#C05F27"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#sky)"/>
+      <circle cx="1020" cy="330" r="130" fill="url(#sun)" opacity=".9"/>
+      <g fill="none" stroke="#A695C9" stroke-width="2" opacity=".35">
+        <path d="M-20 240q240-70 480-40t480-60 520 30"/>
+        <path d="M-20 300q260-50 500-26t470-50 510 24"/>
+      </g>
+      <path d="M0 560 220 380l180 130 240-210 260 240 200-150 180 120 160-90v480H0z" fill="#2b2440"/>
+      <path d="M0 660 190 540l210 90 250-160 280 170 240-120 270 130v250H0z" fill="#221c31"/>
+      <path d="M0 760l260-90 240 60 300-110 320 100 320-70v250H0z" fill="#191524"/>
+      <path d="M620 900c20-120 40-200 90-290" fill="none" stroke="#A695C9" stroke-width="12" stroke-linecap="round" opacity=".3"/>
+      <path d="M600 900c26-110 50-190 96-270" fill="none" stroke="#E0763A" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+    </svg>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Pensiune · Șimon, Bran</span>
+      <h1>Ritmul lent<br>al <span class="it">muntelui.</span></h1>
+      <p class="hero-sub">La capătul străzii Iancu Gonțea, unde asfaltul se termină și începe pârâul, Magic Groove 2 ține același tempo de zeci de ani: încet, cald, fără grabă. Pune-ți viața pe fața B pentru un weekend.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+40740244524">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Rezervă telefonic
+        </a>
+        <a class="btn btn-ghost" href="#valea">Descoperă valea</a>
+      </div>
+      <div class="hero-rating">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+          <svg viewBox="0 0 24 24" style="opacity:.35"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+        </span>
+        <span><strong>4,4</strong> · <a href="https://search.google.com/local/reviews?placeid=ChIJ7Z_yRE04s0AR4PJ4RAfl6IM" target="_blank" rel="noopener">65 de recenzii pe Google</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-ridge" aria-hidden="true">
+    <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+      <path d="M0 110V72l90-24 96 30 114-52 96 40 104-28 120 34 110-48 108 42 96-22 110 30 104-40 112 36 90-18 90 26v42z" fill="#241E30"/>
+      <path d="M0 110V92l120-20 100 22 130-38 104 30 118-18 122 26 116-34 112 30 108-14 110 22 100-26 120 28 80-10v20z" fill="#17131F" opacity=".7"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+<!-- ================= FAȚA A — CASA ================= -->
+<section id="casa" style="background:var(--ink-soft)">
+  <div class="wrap">
+    <div class="side-mark reveal"><span class="badge">A</span> Fața A — casa</div>
+    <div class="sec-head reveal" style="margin-top:34px">
+      <span class="tracknum">piesa 01</span>
+      <h2>O casă care te <span class="it">primește</span>, nu doar te cazează.</h2>
+      <p>Bed &amp; breakfast de familie, condus de Cristian — gazda pe care oaspeții o pomenesc în recenzii pe nume. Camere curate, mese lungi, curte cu pârâu. Atât cât trebuie, exact cum trebuie.</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat reveal">
+        <span class="num" aria-hidden="true">01</span>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-6 8 6v11M9 20v-6h6v6"/></svg></span>
+        <h3>Camere curate, paturi bune</h3>
+        <p>„Camerele foarte curate" e refrenul recenziilor. Lenjerie proaspătă, băi îngrijite, liniște — elementele de bază, cântate fără greșeală.</p>
+      </article>
+      <article class="feat reveal">
+        <span class="num" aria-hidden="true">02</span>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4zM6 2v2M10 2v2M14 2v2"/></svg></span>
+        <h3>Mic dejun ca la mama</h3>
+        <p>Dimineața începe cu cafea la ibric, ouă de la vecini și dulceață de casă — servite fără ceas, în ritmul vacanței, nu al recepției.</p>
+      </article>
+      <article class="feat reveal">
+        <span class="num" aria-hidden="true">03</span>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>Grupuri până la 25</h3>
+        <p>Reuniuni, aniversări, echipe întregi — casa a găzduit grupuri de 25 de persoane care au plecat cu „a fost reușită" în recenzie.</p>
+      </article>
+      <article class="feat reveal">
+        <span class="num" aria-hidden="true">04</span>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 1 0-16 0c0 4.42 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3>Pârâul din spatele casei</h3>
+        <p>Semnătura locului: apa care curge chiar în spatele pensiunii. Seara se aude prin geamul întredeschis — cel mai bun white noise din Carpați.</p>
+      </article>
+      <article class="feat reveal">
+        <span class="num" aria-hidden="true">05</span>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg></span>
+        <h3>Parcare & acces ușor</h3>
+        <p>Strada Iancu Gonțea e la două minute de drumul principal din Șimon: aproape de tot, dar suficient de retrasă cât să nu auzi nimic din el.</p>
+      </article>
+      <article class="feat reveal">
+        <span class="num" aria-hidden="true">06</span>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18-5v3a2 2 0 0 0 2 2h1M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/><circle cx="12" cy="12" r="3.5"/></svg></span>
+        <h3>Gazdă, nu recepție</h3>
+        <p>Cristian îți recomandă traseul potrivit, aprinde grătarul și ține minte cum îți place cafeaua. Recenziile îi mulțumesc pe nume — rar lucru.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPRESII / LINER NOTES ================= -->
+<section id="impresii">
+  <div class="wrap">
+    <div class="liner reveal">
+      <div class="liner-inner">
+        <div class="liner-disc" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#disc-svg"/></svg></div>
+        <div>
+          <span class="liner-badge">De pe coperta interioară · recenzie Google</span>
+          <blockquote>„Pârâul din spatele pensiunii este <strong>mirific</strong>, camerele foarte curate, gazda este deosebită și a făcut totul să ne simțim bine. Am fost un grup de 25 de persoane și întâlnirea noastră a fost reușită, în mare parte datorită locului și gazdei. <strong>Mulțumim, domnule Cristian!</strong>"</blockquote>
+          <cite>
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg>
+            </span>
+            Adi · oaspete, grup de 25 de persoane
+          </cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAȚA B — VALEA ================= -->
+<section id="valea" style="background:var(--ink-soft)">
+  <div class="wrap">
+    <div class="side-mark reveal"><span class="badge">B</span> Fața B — valea</div>
+    <div class="sec-head reveal" style="margin-top:34px">
+      <span class="tracknum">piesa 03</span>
+      <h2>Ieși pe poartă și ești deja <span class="it">în poveste.</span></h2>
+      <p>Șimon e satul de sub Castelul Bran pe care turiștii grăbiți îl ratează. Voi nu — locuiți în el.</p>
+    </div>
+    <div class="valley-grid">
+      <article class="valley reveal">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#241E30"/>
+            <path d="M0 210 80 120l60 60 70-100 80 110 60-70 50 60v110H0z" fill="#37304a"/>
+            <path d="M0 250l100-60 90 40 90-70 120 80v60H0z" fill="#2b2440"/>
+            <path d="M148 84l42-60 42 60-18 6-24-34-24 34z" fill="#A695C9" opacity=".8"/>
+            <circle cx="330" cy="52" r="22" fill="#E0763A" opacity=".85"/>
+          </svg>
+        </div>
+        <span class="dist"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 1 0-16 0c0 4.42 4 8 8 12z"/></svg>~10 min cu mașina</span>
+        <h3>Castelul Bran</h3>
+        <p>Legenda lui Dracula, cozile de la porți, tot spectacolul — la o aruncătură de băț. Voi vă întoarceți apoi în liniștea din Șimon.</p>
+      </article>
+      <article class="valley reveal">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#241E30"/>
+            <path d="M0 190 90 90l80 80 90-120 90 130 50-50v170H0z" fill="#37304a"/>
+            <path d="M0 300c60-30 90-90 110-90s40 50 90 50 80-70 120-70 60 40 80 30v80z" fill="#2b2440"/>
+            <path d="M20 240q40-18 60 0t60 6q30-12 60 0t60-4q30-10 60 0t60 2" fill="none" stroke="#A695C9" stroke-width="3" opacity=".7"/>
+          </svg>
+        </div>
+        <span class="dist"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 1 0-16 0c0 4.42 4 8 8 12z"/></svg>de la poartă</span>
+        <h3>Trasee spre Bucegi</h3>
+        <p>Din capătul satului pornesc poteci spre Guțanu și platoul Bucegilor. Dimineața urci în ceață, la prânz ești deasupra ei.</p>
+      </article>
+      <article class="valley reveal">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#241E30"/>
+            <path d="M0 170 70 100l70 60 80-90 100 110 80-60v180H0z" fill="#37304a"/>
+            <path d="M170 300c0-60 10-110 30-160" fill="none" stroke="#A695C9" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+            <path d="M150 300c10-50 24-90 50-140" fill="none" stroke="#E0763A" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+          </svg>
+        </div>
+        <span class="dist"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 1 0-16 0c0 4.42 4 8 8 12z"/></svg>în spatele casei</span>
+        <h3>Pârâul Șimonului</h3>
+        <p>Coloana sonoră a șederii. Copiii construiesc baraje, adulții își răcesc pepenele, iar seara toată lumea adoarme pe susurul lui.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIE ================= -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tracknum">piesa 04</span>
+      <h2>Din arhiva <span class="it">casei.</span></h2>
+      <p>Coperțile colecției: locurile pe care le vei ține minte după prima ședere.</p>
+    </div>
+    <div class="sleeves" id="sleeves">
+      <figure class="sleeve reveal" data-idx="0">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><use href="#disc-svg"/></svg>
+        </div>
+        <figcaption>Cabana de pe deal</figcaption>
+      </figure>
+      <figure class="sleeve reveal" data-idx="1">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="400" fill="#241E30"/>
+            <g fill="none" stroke="#37304a" stroke-width="1.5">
+              <ellipse cx="200" cy="200" rx="170" ry="150"/><ellipse cx="200" cy="205" rx="140" ry="118"/>
+              <ellipse cx="205" cy="210" rx="110" ry="88"/><ellipse cx="210" cy="215" rx="80" ry="60"/>
+              <ellipse cx="215" cy="220" rx="50" ry="35"/>
+            </g>
+            <ellipse cx="218" cy="222" rx="22" ry="14" fill="#E0763A" opacity=".9"/>
+          </svg>
+        </div>
+        <figcaption>Pârâul din spatele casei</figcaption>
+      </figure>
+      <figure class="sleeve reveal" data-idx="2">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="400" fill="#241E30"/>
+            <path d="M0 260 90 150l80 80 90-130 100 150 40-40v190H0z" fill="#37304a"/>
+            <path d="M0 320l110-70 90 50 100-80 100 70v110H0z" fill="#2b2440"/>
+            <circle cx="320" cy="80" r="30" fill="#A695C9" opacity=".8"/>
+          </svg>
+        </div>
+        <figcaption>Valea Șimonului</figcaption>
+      </figure>
+      <figure class="sleeve reveal" data-idx="3">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="400" fill="#241E30"/>
+            <path d="M60 400C80 280 140 220 200 200s120-30 140-90" fill="none" stroke="#A695C9" stroke-width="14" stroke-linecap="round" opacity=".5"/>
+            <path d="M40 400c30-130 100-190 170-210" fill="none" stroke="#E0763A" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+            <circle cx="340" cy="110" r="6" fill="#E0763A"/><circle cx="300" cy="150" r="4" fill="#A695C9"/>
+          </svg>
+        </div>
+        <figcaption>Grătarul de lângă pârâu</figcaption>
+      </figure>
+      <figure class="sleeve reveal" data-idx="4">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="400" fill="#241E30"/>
+            <g stroke="#37304a" stroke-width="1.5" fill="none">
+              <path d="M0 320h400M0 280h400M0 240h400"/>
+            </g>
+            <rect x="70" y="180" width="260" height="14" rx="7" fill="#37304a"/>
+            <rect x="110" y="140" width="180" height="12" rx="6" fill="#E0763A" opacity=".85"/>
+            <circle cx="140" cy="110" r="16" fill="#A695C9" opacity=".8"/>
+            <circle cx="200" cy="104" r="16" fill="#A695C9" opacity=".55"/>
+            <circle cx="260" cy="110" r="16" fill="#A695C9" opacity=".8"/>
+          </svg>
+        </div>
+        <figcaption>Din cuptorul casei</figcaption>
+      </figure>
+      <figure class="sleeve reveal" data-idx="5">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="400" fill="#241E30"/>
+            <path d="M120 400V220l80-70 80 70v180z" fill="#37304a"/>
+            <path d="M160 400v-90h80v90z" fill="#241E30"/>
+            <path d="M96 232l104-92 104 92" fill="none" stroke="#E0763A" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="200" cy="70" r="4" fill="#A695C9"/><circle cx="240" cy="50" r="3" fill="#A695C9" opacity=".7"/><circle cx="160" cy="46" r="2.5" fill="#A695C9" opacity=".6"/>
+          </svg>
+        </div>
+        <figcaption>Iarna la Șimon</figcaption>
+      </figure>
+    </div>
+    <p class="sleeves-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <span>Fotografii reale, făcute de oaspeți — din <a href="https://www.google.com/maps/place/Magic+Groove+2/@45.466088,25.3537957,18.29z/data=!4m6!3m5!1s0x40b3384d44f29fed:0x83e8e5074478f2e0!8m2!3d45.4662502!4d25.3536317!16s%2Fg%2F1jkw83vbm" target="_blank" rel="noopener">profilul Google Maps al pensiunii</a>.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="tracknum">piesa 05 · ultima de pe disc</span>
+          <h2>Hai să punem <span class="it" style="color:var(--amber-deep)">discul</span> de la capăt.</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div><strong>Telefon & rezervări</strong><a href="tel:+40740244524">0740 244 524</a></div>
+            </li>
+            <li>
+              <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 1 0-16 0c0 4.42 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div><strong>Adresă</strong><span>Strada Iancu Gonțea, 507028 Șimon, Bran · Brașov</span></div>
+            </li>
+            <li>
+              <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01M12 12h.01"/></svg></span>
+              <div><strong>Plus code</strong><span>F983+GF Șimon</span></div>
+            </li>
+            <li>
+              <span class="cico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.87L17.8 21 12 17.77 6.2 21l1.05-6.86L2.5 9.27l6.6-1.01z"/></svg></span>
+              <div><strong>Pe Google</strong><a href="https://search.google.com/local/reviews?placeid=ChIJ7Z_yRE04s0AR4PJ4RAfl6IM" target="_blank" rel="noopener">4,4★ · 65 de recenzii</a></div>
+            </li>
+          </ul>
+          <div class="contact-actions">
+            <a class="btn btn-dark" href="tel:+40740244524">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Sună acum
+            </a>
+            <a class="btn btn-outline-dark" href="https://wa.me/40740244524" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Scrie pe WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe title="Harta — Magic Groove 2, Strada Iancu Gonțea, Șimon" src="https://maps.google.com/maps?q=Magic%20Groove%202%20Simon%20Bran&ll=45.4662502,25.3536317&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <a class="map-open" href="https://www.google.com/maps/place/Magic+Groove+2/@45.466088,25.3537957,18.29z/data=!4m6!3m5!1s0x40b3384d44f29fed:0x83e8e5074478f2e0!8m2!3d45.4662502!4d25.3536317!16s%2Fg%2F1jkw83vbm" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Deschide în Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a class="brand" href="#top" aria-label="Înapoi sus">
+        <span class="brand-disc" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#disc-svg"/></svg></span>
+        <span class="brand-name">Magic <em>Groove</em> 2</span>
+      </a>
+      <span>Strada Iancu Gonțea, Șimon · Bran · <a href="tel:+40740244524" style="color:var(--lilac);text-decoration:none">0740 244 524</a></span>
+      <span>© <span id="year">2026</span> Magic Groove 2</span>
+    </div>
+    <p class="runout">· fața B se ascultă cel mai bine cu geamul deschis ·</p>
+  </div>
+</footer>
+
+<script>
+/* === FOTOGRAFII REALE ===
+   Lipește aici URL-urile pozelor din profilul Google Maps al pensiunii
+   (click dreapta pe poză → Copy image address → arată ca
+   https://lh3.googleusercontent.com/p/AF1Qip...=s1600).
+   Ordinea corespunde coperților din galerie (0–5). */
+const PHOTOS = [
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG1OLeFaEo8vutKaq0AFK8KMo2BP8K8uHk3f5ELsnVydyAm68FtHH41sVS3-ngmw5QlwQLCCYqjL5OUIBDWdncVH4mOTW6v5-p80pKUjjFpG7Yn1KWFQi4dwdvXfCsGHIPTkfTNVQ=w1200-h900-k-no",
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE1IfwguiV3oEKAg5VsWQtxiBlLJxYKCwM3_tQ1A6l5a6LsXnyPJznYQ2Btdqq9uWCWqRhtqUY-zktS6wxyNrAUZ34SVqtPYKhWpnQCF5XygfNW7-r0N9LXZnj8BD8-dDI17mXEOg=w1200-h900-k-no",
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFHEkvHdF9z1MA0bP90vXeBnxHRAfX0x37hUGcXq8iwhRLxRXKDVO_M1YOpRUokJ1rmNBhpWNFm7gGKNwyg7PuDecId8E3EI6vMViCfff1e1uMT3pEVXmyibfNqnk2fRMBvrXpgCg=w1200-h900-k-no",
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGQwirjpYZdAJwPHVOydAFLdbrF3MFUeKcoVfrkPg4QduOsGlh8eRQuKJcXFWYvzP_BQSi5g-fd1GbLMHSbb7Zd8pTRBJNWJ1VROEWi1kZX6q29NH059i-R6l1xQdYhgH0k8XP6=w1200-h900-k-no",
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHXu2Vy5A2aanSunWpmIgwN_c3z2_JK9v8oJhuoOKppV6J5oAGOnzRuXZzST2Y6WCnZ6fa91MBKcSkpCRrAPDga7L5R_t7J5niNX35YpUS5XLoWwaF7MRVXKxw_KREuHmg3Z1g=w1200-h900-k-no",
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEh-PsqWwF-XI5u-QoWrqirrk5RN9VrnV2cD1uHF5aRDqbcsy7vugplQo_doBgO5yE33_N6BXjQ8K71UaIa4VjYYr9ONWD02azT6D0lGxy-K4nxlT1vyfJBZhuaVRg-8Ytd8zA=w1200-h900-k-no"
+];
+/* Poza mare din hero — terasa de piatră de lângă pârâu */
+const HERO_PHOTO = "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSJlfcNsFipU3v6Aen_27wSH183jMOeYwpzRjyERU5RfKJVNnHZChQtt826cOxLMFxGuDmmAvl8g_UrVbzt7DdFkeNgbt_G1VcxGCIt4fJg7ZX2z35xPh9dVIV5lDfw0ozC-MuUg=w1920-h1280-k-no";
+
+if(HERO_PHOTO){
+  const img=document.createElement('img');
+  img.src=HERO_PHOTO; img.alt=""; img.fetchPriority='high';
+  document.getElementById('hero-fallback').replaceWith(img);
+}
+
+/* hero — poza se ia după mouse (parallax cu lerp) */
+(function(){
+  const media=document.getElementById('hero-media');
+  const layer=()=>media.firstElementChild;
+  const fine=matchMedia('(pointer: fine)').matches;
+  const noMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!fine||noMotion) return;
+  const MAX=22; let tx=0,ty=0,cx=0,cy=0,raf=null;
+  function tick(){
+    cx+=(tx-cx)*.06; cy+=(ty-cy)*.06;
+    const el=layer();
+    el.style.setProperty('--px',cx.toFixed(2)+'px');
+    el.style.setProperty('--py',cy.toFixed(2)+'px');
+    if(Math.abs(tx-cx)>.05||Math.abs(ty-cy)>.05){ raf=requestAnimationFrame(tick); } else raf=null;
+  }
+  document.querySelector('header').addEventListener('mousemove',e=>{
+    const r=media.getBoundingClientRect();
+    tx=((e.clientX-r.left)/r.width-.5)*2*MAX;
+    ty=((e.clientY-r.top)/r.height-.5)*2*MAX;
+    if(!raf) raf=requestAnimationFrame(tick);
+  });
+  document.querySelector('header').addEventListener('mouseleave',()=>{
+    tx=0;ty=0; if(!raf) raf=requestAnimationFrame(tick);
+  });
+})();
+const CAPTIONS = ["Cabana de pe deal","Pârâul din spatele casei","Valea Șimonului","Grătarul de lângă pârâu","Din cuptorul casei","Iarna la Șimon"];
+document.querySelectorAll('.sleeve').forEach((s,i)=>{
+  if(PHOTOS[i]){
+    const img=document.createElement('img');
+    img.src=PHOTOS[i]; img.alt=CAPTIONS[i]||'Magic Groove 2'; img.loading='lazy';
+    s.querySelector('.ph').replaceWith(img);
+  }
+});
+
+/* meniu mobil */
+const tgl=document.querySelector('.nav-toggle'), links=document.getElementById('nav-links');
+tgl.addEventListener('click',()=>{
+  const open=links.classList.toggle('open');
+  tgl.setAttribute('aria-expanded',open);
+  tgl.setAttribute('aria-label',open?'Închide meniul':'Deschide meniul');
+});
+links.addEventListener('click',e=>{ if(e.target.closest('a')){links.classList.remove('open');tgl.setAttribute('aria-expanded','false');} });
+
+/* tonearm — progres scroll */
+const needle=document.getElementById('needle');
+function onScroll(){
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  needle.style.top=(p*100)+'%';
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+
+/* reveal la scroll */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('on')); }
+else{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);} }),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
